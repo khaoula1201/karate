@@ -1,0 +1,7 @@
+{
+  "name": "Smartphone XYZ",
+  "price": -10.00,
+  "stock": 100,
+  "description": "Un smartphone haut de gamme",
+  "categoryId": 1
+}

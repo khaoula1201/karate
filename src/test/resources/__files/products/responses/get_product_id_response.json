@@ -1,0 +1,13 @@
+{
+  "id": "prod_12345",
+  "name": "Ordinateur Portable",
+  "description": "Un ordinateur portable puissant et léger.",
+  "price": 1200.00,
+  "currency": "EUR",
+  "category_id": "CAT001",
+  "brand_id": "BRAND001",
+  "status": "active",
+  "isActive": true,
+  "createdAt": "2025-07-10T18:00:00Z",
+  "updatedAt": "2025-07-10T18:05:00Z"
+}

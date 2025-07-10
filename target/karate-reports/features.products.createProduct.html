@@ -38,7 +38,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
       <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
     </a>
     <div class="nav-count">
-      <div id="nav-pass" class="bg-success">1</div>
+      <div id="nav-pass" class="bg-success">6</div>
       <div id="nav-fail" class="bg-danger">0</div>
     </div>
   </div>
@@ -49,13 +49,28 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
     <div>Scenarios</div>
   </div>
   <div id="nav-date">
-    <div>2025-07-10 04:35:52 PM</div>
+    <div>2025-07-10 11:05:08 PM</div>
   </div>
 </div>
 
         <div class="nav-container">
           <div class="nav-item passed">
-            <a href="#[1.1:17]"><span>[1.1:17]</span> <span>Création valide d&#39;un produit</span></a>
+            <a href="#[1:7]"><span>[1:7]</span> <span>Créer un produit de base valide (Admin Siege)</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2:15]"><span>[2:15]</span> <span>Tenter de créer un produit sans les autorisations nécessaires</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[3:24]"><span>[3:24]</span> <span>Tenter de créer un produit avec une catégorie ou marque inexistante</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4.1:42]"><span>[4.1:42]</span> <span>Erreurs lors de la création d&#39;un produit</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4.2:43]"><span>[4.2:43]</span> <span>Erreurs lors de la création d&#39;un produit</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4.3:44]"><span>[4.3:44]</span> <span>Erreurs lors de la création d&#39;un produit</span></a>
           </div>
         </div>
       </div>
@@ -65,40 +80,40 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
           <span class="feature-label">Feature:</span>
           <span class="feature-path">features/products/createProduct.feature</span><span class="feature-label">|</span>
-          <span class="feature-name">API Product - POST Endpoints</span>
+          <span class="feature-name">Création et validation d&#39;un produit principal</span>
           <span class="feature-description"></span>
         </div>
         <div class="scenario">
-          <div class="scenario-heading" id="[1.1:17]">
+          <div class="scenario-heading" id="[1:7]">
             <div class="heading-container">
               <div class="scenario-tags">
                 
               </div>
               <div class="scenario-keyword">
-                Scenario: <span>[1.1:17]</span>
-                <span class="scenario-name">Création valide d&#39;un produit</span>
+                Scenario: <span>[1:7]</span>
+                <span class="scenario-name">Créer un produit de base valide (Admin Siege)</span>
                 <span></span>
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>605</span>
+              <span>ms:</span>&nbsp;<span>693</span>
             </div>
           </div>
           <div class="step-row">
-            <div class="step-container" id="[1.1:17]bg">
+            <div class="step-container" id="[1:7]bg">
               <div class="step-ref bg-step">&gt;&gt;</div>
               <div class="step-cell passed">Background:</div>
             </div>
             <div class="time-cell passed"></div>
           </div>
-          <div data-parent="[1.1:17]bg"><div>
+          <div data-parent="[1:7]bg"><div>
   
 
   
 
   <div class="step-row">
-    <div class="step-container" id="1.4">
-      <div class="step-ref bg-step">4</div>
+    <div class="step-container" id="0.3">
+      <div class="step-ref bg-step">3</div>
       
       <div class="step-cell passed">
         <span>*</span>&nbsp;<span>url &#39;http://localhost:8080&#39;</span>
@@ -119,20 +134,20 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
 </div>
 </div>
-          <div data-parent="[1.1:17]bg"><div>
+          <div data-parent="[1:7]bg"><div>
   
 
   
 
   <div class="step-row">
-    <div class="step-container" id="1.5">
-      <div class="step-ref bg-step">5</div>
+    <div class="step-container" id="0.4">
+      <div class="step-ref bg-step">4</div>
       
       <div class="step-cell passed">
-        <span>*</span>&nbsp;<span>header Content-Type = &#39;application/json&#39;</span>
+        <span>*</span>&nbsp;<span>def adminToken = &#39;Bearer admin-token&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -153,11 +168,11 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   
 
   <div class="step-row">
-    <div class="step-container" id="1.8">
+    <div class="step-container" id="0.8">
       <div class="step-ref passed">8</div>
       
       <div class="step-cell passed">
-        <span>Given</span>&nbsp;<span>path &#39;products&#39;</span>
+        <span>Given</span>&nbsp;<span>path &#39;/products&#39;</span>
       </div>
     </div>
     <div class="time-cell passed">1</div>
@@ -181,14 +196,14 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   
 
   <div class="step-row">
-    <div class="step-container" id="1.9">
+    <div class="step-container" id="0.9">
       <div class="step-ref passed">9</div>
       
       <div class="step-cell passed">
-        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer valid-token&#39;</span>
+        <span>And</span>&nbsp;<span>request read(&#39;classpath:__files/products/requests/post_product_base.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">34</div>
   </div>
 
    
@@ -209,14 +224,14 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   
 
   <div class="step-row">
-    <div class="step-container" id="1.10">
+    <div class="step-container" id="0.10">
       <div class="step-ref passed">10</div>
       
       <div class="step-cell passed">
-        <span>And</span>&nbsp;<span>request read(&#39;classpath:__files/post/POST_product_base.json&#39;)</span>
+        <span>And</span>&nbsp;<span>headers { &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Authorization&#39;: &#39;#(adminToken)&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">55</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -237,14 +252,14 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   
 
   <div class="step-row">
-    <div class="step-container" id="1.11">
+    <div class="step-container" id="0.11">
       <div class="step-ref passed">11</div>
       
       <div class="step-cell passed">
-        <span>When</span>&nbsp;<span>method post</span>
+        <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">529</div>
+    <div class="time-cell passed">637</div>
   </div>
 
    
@@ -253,7 +268,69 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-     
+  <div class="preformatted" data-parent="0.11">23:05:07.410 request:
+1 &gt; POST http://localhost:8080/products
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Authorization: Bearer admin-token
+1 &gt; Content-Length: 404
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;name&quot;:&quot;Smartphone Premium X9&quot;,&quot;description&quot;:&quot;Dernier modèle avec écran 6.7\&quot; et triple caméra&quot;,&quot;marque&quot;:{&quot;id&quot;:&quot;marque_123&quot;},&quot;categorie&quot;:{&quot;id&quot;:&quot;cat_456&quot;},&quot;prixProduit&quot;:{&quot;prixDeBase&quot;:899.99,&quot;estActuel&quot;:true},&quot;stock&quot;:{&quot;stock_reel&quot;:100,&quot;stock_fictif&quot;:100,&quot;seuil_rupture&quot;:10,&quot;seuil_surstock&quot;:200},&quot;emballage&quot;:{&quot;type&quot;:&quot;CARTON&quot;,&quot;largeur&quot;:15,&quot;hauteur&quot;:8,&quot;longeur&quot;:5,&quot;poids&quot;:0.5,&quot;material&quot;:&quot;CARTON_RECYCLE&quot;}}
+
+23:05:07.905 response time in milliseconds: 491
+1 &lt; 201
+1 &lt; Content-Type: application/json
+1 &lt; Matched-Stub-Id: 976f6ee8-a0ad-43cd-b0c5-7a6671eb5d7f
+1 &lt; Transfer-Encoding: chunked
+{
+  &quot;id&quot;: &quot;prod_789012345&quot;,
+  &quot;nom&quot;: &quot;Smartphone Premium X9&quot;,
+  &quot;description&quot;: &quot;Dernier modèle avec écran 6.7\&quot; et triple caméra&quot;,
+  &quot;datecreationProduit&quot;: &quot;#ignore&quot;,
+  &quot;datemodificationProduit&quot;: &quot;#ignore&quot;,
+  &quot;marque&quot;: {
+    &quot;id&quot;: &quot;marque_123&quot;,
+    &quot;nom&quot;: &quot;TechBrand&quot;
+  },
+  &quot;categorie&quot;: {
+    &quot;id&quot;: &quot;cat_456&quot;,
+    &quot;nom&quot;: &quot;Électronique&quot;
+  },
+  &quot;prixProduit&quot;: {
+    &quot;id&quot;: &quot;prix_789&quot;,
+    &quot;prixDeBase&quot;: 899.99,
+    &quot;estActuel&quot;: true,
+    &quot;dateCreationPrix&quot;: &quot;#ignore&quot;
+  },
+  &quot;stock&quot;: {
+    &quot;id&quot;: &quot;stock_123&quot;,
+    &quot;stock_reel&quot;: 100,
+    &quot;stock_fictif&quot;: 100,
+    &quot;seuil_rupture&quot;: 10,
+    &quot;seuil_surstock&quot;: 200
+  },
+  &quot;emballage&quot;: {
+    &quot;id&quot;: &quot;emb_456&quot;,
+    &quot;type&quot;: &quot;CARTON&quot;,
+    &quot;largeur&quot;: 15,
+    &quot;hauteur&quot;: 8,
+    &quot;longeur&quot;: 5,
+    &quot;poids&quot;: 0.5,
+    &quot;material&quot;: &quot;CARTON_RECYCLE&quot;
+  },
+  &quot;_links&quot;: {
+    &quot;self&quot;: {
+      &quot;href&quot;: &quot;/api/products/prod_789012345&quot;
+    },
+    &quot;variantes&quot;: {
+      &quot;href&quot;: &quot;/api/products/prod_789012345/variantes&quot;
+    }
+  }
+}
+
+</div>   
 
   
 
@@ -265,7 +342,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   
 
   <div class="step-row">
-    <div class="step-container" id="1.12">
+    <div class="step-container" id="0.12">
       <div class="step-ref passed">12</div>
       
       <div class="step-cell passed">
@@ -293,14 +370,1311 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   
 
   <div class="step-row">
-    <div class="step-container" id="1.13">
+    <div class="step-container" id="0.13">
       <div class="step-ref passed">13</div>
       
       <div class="step-cell passed">
-        <span>And</span>&nbsp;<span>match response == read(&#39;classpath:__files/post/POST_product_response_success.json&#39;)</span>
+        <span>And</span>&nbsp;<span>match response == read(&#39;classpath:__files/products/responses/post_product_response_success.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">16</div>
+    <div class="time-cell passed">15</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2:15]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2:15]</span>
+                <span class="scenario-name">Tenter de créer un produit sans les autorisations nécessaires</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>64</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[2:15]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[2:15]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.3">
+      <div class="step-ref bg-step">3</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;http://localhost:8080&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:15]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.4">
+      <div class="step-ref bg-step">4</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def adminToken = &#39;Bearer admin-token&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.16">
+      <div class="step-ref passed">16</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/products&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.17">
+      <div class="step-ref passed">17</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>headers { &#39;Content-Type&#39;: &#39;application/json&#39; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.18">
+      <div class="step-ref passed">18</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request { &quot;name&quot;: &quot;Unauthorized Product&quot;, &quot;price&quot;: 100, &quot;category_id&quot;: &quot;cat_test&quot;, &quot;brand_id&quot;: &quot;brand_test&quot; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.19">
+      <div class="step-ref passed">19</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">53</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.19">23:05:07.961 request:
+1 &gt; POST http://localhost:8080/products
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 92
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;name&quot;:&quot;Unauthorized Product&quot;,&quot;price&quot;:100,&quot;category_id&quot;:&quot;cat_test&quot;,&quot;brand_id&quot;:&quot;brand_test&quot;}
+
+23:05:08.009 response time in milliseconds: 46
+1 &lt; 401
+1 &lt; Matched-Stub-Id: effca76d-11c9-4ed4-9788-ef11d3c652f3
+1 &lt; Transfer-Encoding: chunked
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.20">
+      <div class="step-ref passed">20</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 401</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.21">
+      <div class="step-ref passed">21</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>def expectedErrorResponse = read(&#39;classpath:__files/common/error_unauthorized.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.22">
+      <div class="step-ref passed">22</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response == expectedErrorResponse</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[3:24]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[3:24]</span>
+                <span class="scenario-name">Tenter de créer un produit avec une catégorie ou marque inexistante</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>55</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[3:24]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[3:24]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.3">
+      <div class="step-ref bg-step">3</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;http://localhost:8080&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:24]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.4">
+      <div class="step-ref bg-step">4</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def adminToken = &#39;Bearer admin-token&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.25">
+      <div class="step-ref passed">25</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/products&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.26">
+      <div class="step-ref passed">26</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>headers { &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Authorization&#39;: &#39;#(adminToken)&#39; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.27">
+      <div class="step-ref passed">27</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request { &quot;name&quot;: &quot;Product with Invalid Category&quot;, &quot;price&quot;: 200, &quot;category_id&quot;: &quot;INVALID_CAT_ID&quot;, &quot;brand_id&quot;: &quot;BRAND001&quot; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.28">
+      <div class="step-ref passed">28</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">42</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.28">23:05:08.045 request:
+1 &gt; POST http://localhost:8080/products
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Authorization: Bearer admin-token
+1 &gt; Content-Length: 105
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;name&quot;:&quot;Product with Invalid Category&quot;,&quot;price&quot;:200,&quot;category_id&quot;:&quot;INVALID_CAT_ID&quot;,&quot;brand_id&quot;:&quot;BRAND001&quot;}
+
+23:05:08.082 response time in milliseconds: 36
+1 &lt; 400
+1 &lt; Content-Type: application/json
+1 &lt; Matched-Stub-Id: 66ff4b5b-32bd-4734-9308-e8e3fd19f3a3
+1 &lt; Transfer-Encoding: chunked
+{
+  &quot;code&quot;: &quot;PROD_ERR_001&quot;,
+  &quot;message&quot;: &quot;Validation Error: Category or Brand ID does not exist.&quot;
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.29">
+      <div class="step-ref passed">29</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.30">
+      <div class="step-ref passed">30</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>def expectedInvalidIdError = read(&#39;classpath:__files/products/responses/error_invalid_category_brand.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.31">
+      <div class="step-ref passed">31</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response == expectedInvalidIdError</span>
+      </div>
+    </div>
+    <div class="time-cell passed">5</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4.1:42]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4.1:42]</span>
+                <span class="scenario-name">Erreurs lors de la création d&#39;un produit</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>64</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4.1:42]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4.1:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.3">
+      <div class="step-ref bg-step">3</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;http://localhost:8080&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4.1:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.4">
+      <div class="step-ref bg-step">4</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def adminToken = &#39;Bearer admin-token&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.34">
+      <div class="step-ref passed">34</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;products&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.35">
+      <div class="step-ref passed">35</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request read(&#39;classpath:__files/products/requests/post_product_missing_name.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.36">
+      <div class="step-ref passed">36</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">55</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="1.36">23:05:08.121 request:
+1 &gt; POST http://localhost:8080/products
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 87
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;price&quot;:599.99,&quot;stock&quot;:100,&quot;description&quot;:&quot;Un smartphone haut de gamme&quot;,&quot;categoryId&quot;:1}
+
+23:05:08.171 response time in milliseconds: 49
+1 &lt; 400
+1 &lt; Matched-Stub-Id: a0087119-69bf-46ce-aa01-be90c8ed54f4
+1 &lt; Transfer-Encoding: chunked
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.37">
+      <div class="step-ref passed">37</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.38">
+      <div class="step-ref passed">38</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response == read(&#39;classpath:__files/products/responses/post_product_missing_name_response.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4.2:43]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4.2:43]</span>
+                <span class="scenario-name">Erreurs lors de la création d&#39;un produit</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>47</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4.2:43]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4.2:43]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.3">
+      <div class="step-ref bg-step">3</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;http://localhost:8080&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4.2:43]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.4">
+      <div class="step-ref bg-step">4</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def adminToken = &#39;Bearer admin-token&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.34">
+      <div class="step-ref passed">34</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;products&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.35">
+      <div class="step-ref passed">35</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request read(&#39;classpath:__files/products/requests/post_product_invalid_price.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.36">
+      <div class="step-ref passed">36</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">38</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="2.36">23:05:08.207 request:
+1 &gt; POST http://localhost:8080/products
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 110
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;name&quot;:&quot;Smartphone XYZ&quot;,&quot;price&quot;:-10.0,&quot;stock&quot;:100,&quot;description&quot;:&quot;Un smartphone haut de gamme&quot;,&quot;categoryId&quot;:1}
+
+23:05:08.240 response time in milliseconds: 33
+1 &lt; 400
+1 &lt; Matched-Stub-Id: 13a2318d-e4e8-4604-a560-8205905dfa0a
+1 &lt; Transfer-Encoding: chunked
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.37">
+      <div class="step-ref passed">37</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.38">
+      <div class="step-ref passed">38</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response == read(&#39;classpath:__files/products/responses/post_product_invalid_price_response.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4.3:44]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4.3:44]</span>
+                <span class="scenario-name">Erreurs lors de la création d&#39;un produit</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>53</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4.3:44]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4.3:44]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.3">
+      <div class="step-ref bg-step">3</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;http://localhost:8080&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4.3:44]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.4">
+      <div class="step-ref bg-step">4</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def adminToken = &#39;Bearer admin-token&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.34">
+      <div class="step-ref passed">34</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;products&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.35">
+      <div class="step-ref passed">35</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request read(&#39;classpath:__files/products/requests/post_product_conflict.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.36">
+      <div class="step-ref passed">36</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">42</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="3.36">23:05:08.273 request:
+1 &gt; POST http://localhost:8080/products
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 111
+1 &gt; Host: localhost:8080
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;name&quot;:&quot;Smartphone XYZ&quot;,&quot;price&quot;:599.99,&quot;stock&quot;:100,&quot;description&quot;:&quot;Un smartphone haut de gamme&quot;,&quot;categoryId&quot;:1}
+
+23:05:08.310 response time in milliseconds: 37
+1 &lt; 409
+1 &lt; Matched-Stub-Id: 3f3f0e05-a34b-47cb-9df7-9d9c1c4cc69e
+1 &lt; Transfer-Encoding: chunked
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.37">
+      <div class="step-ref passed">37</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 409</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.38">
+      <div class="step-ref passed">38</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response == read(&#39;classpath:__files/products/responses/post_product_conflict_response.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">7</div>
   </div>
 
    

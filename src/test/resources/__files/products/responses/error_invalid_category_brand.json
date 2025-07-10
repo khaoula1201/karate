@@ -1,0 +1,4 @@
+{
+  "code": "PROD_ERR_001",
+  "message": "Validation Error: Category or Brand ID does not exist."
+}

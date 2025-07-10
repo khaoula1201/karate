@@ -1,0 +1,11 @@
+[
+  {
+    "id": "prod_12345",
+    "name": "Ordinateur Portable",
+    "price": 1200.00,
+    "currency": "EUR",
+    "category_id": "CAT001",
+    "brand_id": "BRAND001",
+    "isActive": true
+  }
+]

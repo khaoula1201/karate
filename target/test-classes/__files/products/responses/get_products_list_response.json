@@ -1,0 +1,28 @@
+[
+  {
+    "id": "prod_12345",
+    "name": "Ordinateur Portable",
+    "price": 1200.00,
+    "currency": "EUR",
+    "category_id": "CAT001",
+    "brand_id": "BRAND001",
+    "isActive": true
+  },
+  {
+    "id": "prod_67890",
+    "name": "Souris Ergonomique",
+    "price": 25.50,
+    "currency": "EUR",
+    "category_id": "CAT002",
+    "brand_id": "BRAND002",
+    "isActive": true
+  },
+  {
+    "id": "prod_ABCDE",
+    "name": "Clavier Mécanique",
+    "price": 99.99,
+    "currency": "EUR",
+    "category_id": "CAT002",
+    "brand_id": "BRAND001",
+    "isActive": false
+  }]

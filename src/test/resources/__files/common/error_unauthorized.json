@@ -1,0 +1,4 @@
+{
+  "code": "AUTH_001",
+  "message": "Access denied. Invalid or missing authentication token."
+}
