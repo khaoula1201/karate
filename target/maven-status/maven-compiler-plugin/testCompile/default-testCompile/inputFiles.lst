@@ -1,0 +1,3 @@
+/home/client/karate-api-project/src/test/java/com/exemple/qa/runners/ProductPostRunnerTest.java
+/home/client/karate-api-project/src/test/java/com/exemple/qa/AppTest.java
+/home/client/karate-api-project/src/test/java/com/exemple/qa/wiremock/ProductMockServer.java

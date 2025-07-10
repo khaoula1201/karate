@@ -1,0 +1,45 @@
+{
+  "id": "prod_789012345",
+  "nom": "Smartphone Premium X9",
+  "description": "Dernier modèle avec écran 6.7\" et triple caméra",
+  "datecreationProduit": "#ignore",
+  "datemodificationProduit": "#ignore",
+  "marque": {
+    "id": "marque_123",
+    "nom": "TechBrand"
+  },
+  "categorie": {
+    "id": "cat_456",
+    "nom": "Électronique"
+  },
+  "prixProduit": {
+    "id": "prix_789",
+    "prixDeBase": 899.99,
+    "estActuel": true,
+    "dateCreationPrix": "#ignore"
+  },
+  "stock": {
+    "id": "stock_123",
+    "stock_reel": 100,
+    "stock_fictif": 100,
+    "seuil_rupture": 10,
+    "seuil_surstock": 200
+  },
+  "emballage": {
+    "id": "emb_456",
+    "type": "CARTON",
+    "largeur": 15,
+    "hauteur": 8,
+    "longeur": 5,
+    "poids": 0.5,
+    "material": "CARTON_RECYCLE"
+  },
+  "_links": {
+    "self": {
+      "href": "/api/products/prod_789012345"
+    },
+    "variantes": {
+      "href": "/api/products/prod_789012345/variantes"
+    }
+  }
+}

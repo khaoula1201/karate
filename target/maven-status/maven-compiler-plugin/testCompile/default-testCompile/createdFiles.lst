@@ -1,0 +1,3 @@
+com/exemple/qa/wiremock/MockServer.class
+com/exemple/qa/runners/KarateRunnerTest.class
+com/exemple/qa/AppTest.class
