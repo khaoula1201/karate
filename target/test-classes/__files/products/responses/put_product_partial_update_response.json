@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "nom": "Smartphone XYZ",
+  "description": "Un smartphone haut de gamme",
+  "datecreationProduit": "2025-01-01T10:00:00Z",
+  "datemodificationProduit": "2025-04-14T15:30:00Z",
+  "marqueId": 1,
+  "emballageId": 1,
+  "stock_reel": 50,
+  "prixDeBase": 699.99,
+  "attributs": [
+    { "id": 1, "nom": "Couleur", "valeur": "Noir" },
+    { "id": 2, "nom": "Capacité", "valeur": "64 Go" }
+  ]
+}

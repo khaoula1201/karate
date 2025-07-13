@@ -1,3 +1,5 @@
 com/exemple/qa/runners/AllKarateTestsRunner.class
-com/exemple/qa/wiremock/MockServer.class
 com/exemple/qa/AppTest.class
+com/exemple/qa/wiremock/MockServer.class
+com/exemple/qa/wiremock/ProductStubs.class
+com/exemple/qa/wiremock/VariantStubs.class

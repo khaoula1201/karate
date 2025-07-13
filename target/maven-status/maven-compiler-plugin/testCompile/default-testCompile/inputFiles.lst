@@ -1,3 +1,5 @@
 /home/client/karate-api-project/src/test/java/com/exemple/qa/AppTest.java
 /home/client/karate-api-project/src/test/java/com/exemple/qa/runners/AllKarateTestsRunner.java
+/home/client/karate-api-project/src/test/java/com/exemple/qa/wiremock/ProductStubs.java
+/home/client/karate-api-project/src/test/java/com/exemple/qa/wiremock/VariantStubs.java
 /home/client/karate-api-project/src/test/java/com/exemple/qa/wiremock/MockServer.java

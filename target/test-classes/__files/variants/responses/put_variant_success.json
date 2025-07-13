@@ -1,0 +1,26 @@
+{
+  "id": "variant-123",
+  "product_id": "prod-456",
+  "name": "Variante Chaussures Rouge Maj",
+  "sku": "SKU-RED-SIZE41",
+  "price": 130.00,
+  "status": "ACTIVE",
+  "characteristics": [
+    {
+      "id": "char-1",
+      "name": "Taille",
+      "value": "41"
+    },
+    {
+      "id": "char-2",
+      "name": "Couleur",
+      "value": "Rouge Pailleté"
+    }
+  ],
+  "packaging": {
+    "id": "pack-B",
+    "name": "Emballage Premium"
+  },
+  "creation_date": "2025-07-13T10:00:00Z",
+  "last_updated": "2025-07-13T15:00:00Z"
+}

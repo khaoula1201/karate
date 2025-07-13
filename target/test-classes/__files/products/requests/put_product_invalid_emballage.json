@@ -1,0 +1,9 @@
+{
+  "nom": "Smartphone XYZ",
+  "description": "Un smartphone haut de gamme",
+  "marqueId": 1,
+  "emballageId": 999,
+  "stock_reel": 100,
+  "prixDeBase": 599.99,
+  "attributs": []
+}

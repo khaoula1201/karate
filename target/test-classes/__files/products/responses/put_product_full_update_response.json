@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "nom": "Smartphone XYZ Updated",
+  "description": "Un smartphone haut de gamme mis à jour",
+  "datecreationProduit": "2025-01-01T10:00:00Z",
+  "datemodificationProduit": "2025-04-14T15:30:00Z",
+  "marqueId": 2,
+  "emballageId": 1,
+  "stock_reel": 80,
+  "prixDeBase": 649.99,
+  "attributs": [
+    { "id": 1, "nom": "Couleur", "valeur": "Bleu" },
+    { "id": 2, "nom": "Capacité", "valeur": "128 Go" }
+  ]
+}

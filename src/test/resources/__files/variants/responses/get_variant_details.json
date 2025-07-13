@@ -1,0 +1,26 @@
+{
+  "id": "variant-123",
+  "product_id": "prod-456",
+  "name": "Variante Chaussures Rouges",
+  "sku": "SKU-RED-SIZE41",
+  "price": 120.00,
+  "status": "ACTIVE",
+  "characteristics": [
+    {
+      "id": "char-1",
+      "name": "Taille",
+      "value": "41"
+    },
+    {
+      "id": "char-2",
+      "name": "Couleur",
+      "value": "Rouge"
+    }
+  ],
+  "packaging": {
+    "id": "pack-A",
+    "name": "Boîte standard"
+  },
+  "creation_date": "2025-07-13T10:00:00Z",
+  "last_updated": "2025-07-13T14:30:00Z"
+}

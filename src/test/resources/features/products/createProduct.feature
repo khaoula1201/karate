@@ -1,9 +1,10 @@
+@productCreation
 Feature: Création et validation d'un produit principal
   Background:
     * url 'http://localhost:8080'
     * def adminToken = 'Bearer admin-token'
 
-
+  @createProduct @valid
   Scenario: Créer un produit de base valide (Admin Siege)
     Given path '/products'
     And request read('classpath:__files/products/requests/post_product_base.json')
@@ -12,6 +13,7 @@ Feature: Création et validation d'un produit principal
     Then status 201
     And match response == read('classpath:__files/products/responses/post_product_response_success.json')
 
+  @createProduct @unauthorized @error
   Scenario: Tenter de créer un produit sans les autorisations nécessaires
     Given path '/products'
     And headers { 'Content-Type': 'application/json' }
@@ -21,6 +23,7 @@ Feature: Création et validation d'un produit principal
     And def expectedErrorResponse = read('classpath:__files/common/error_unauthorized.json')
     And match response == expectedErrorResponse
 
+  @createProduct @invalidData @error
   Scenario: Tenter de créer un produit avec une catégorie ou marque inexistante
     Given path '/products'
     And headers { 'Content-Type': 'application/json', 'Authorization': '#(adminToken)' }
@@ -30,6 +33,7 @@ Feature: Création et validation d'un produit principal
     And def expectedInvalidIdError = read('classpath:__files/products/responses/error_invalid_category_brand.json')
     And match response == expectedInvalidIdError
 
+  @createProduct @validation @error
   Scenario Outline: Erreurs lors de la création d'un produit
     Given path <endpoint>
     And request read(<requestFile>)

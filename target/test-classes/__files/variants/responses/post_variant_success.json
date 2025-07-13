@@ -1,0 +1,24 @@
+{
+  "id": "variant-789",
+  "product_id": "prod-456",
+  "name": "Variante Chaussures Noires",
+  "sku": "SKU-BLACK-SIZE42",
+  "price": 120.00,
+  "status": "INACTIVE",
+  "characteristics": [
+    {
+      "id": "char-1",
+      "name": "Taille",
+      "value": "42"
+    },
+    {
+      "id": "char-2",
+      "name": "Couleur",
+      "value": "Noir"
+    }
+  ],
+  "packaging": {
+    "id": "pack-A",
+    "name": "Boîte standard"
+  }
+}

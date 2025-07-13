@@ -1,0 +1,4 @@
+{
+  "code": "PROD_ERR_004",
+  "message": "Product cannot be deleted as it has associated variants."
+}

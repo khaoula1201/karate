@@ -1,0 +1,16 @@
+[
+  {
+    "id": "variant-123",
+    "product_id": "prod-456",
+    "name": "Variante Chaussures Rouges",
+    "sku": "SKU-RED-SIZE41",
+    "price": 120.00
+  },
+  {
+    "id": "variant-789",
+    "product_id": "prod-456",
+    "name": "Variante Chaussures Noires",
+    "sku": "SKU-BLACK-SIZE42",
+    "price": 120.00
+  }
+]
