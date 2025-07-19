@@ -1,0 +1,4 @@
+{
+  "error": "Bad Request",
+  "message": "Le champ 'product_id' est obligatoire."
+}

@@ -1,0 +1,7 @@
+{
+  "id": "stock-generated-id-123",
+  "product_id": "prod-456",
+  "quantity": 50,
+  "location": "WH-A",
+  "status": "AVAILABLE"
+}

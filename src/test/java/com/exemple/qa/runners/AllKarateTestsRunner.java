@@ -20,7 +20,7 @@ public class AllKarateTestsRunner {
 
     @Karate.Test
     Karate testAllFeatures() {
-        return Karate.run("classpath:features/variants");
+        return Karate.run("classpath:features/images");
 
     }
 }

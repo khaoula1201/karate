@@ -19,6 +19,11 @@ public class MockServer {
             // Appel des classes de stubs dédiées.
             ProductStubs.configure(wireMock);
             VariantStubs.configure(wireMock);
+            AlertStubs.configureAlerts(wireMock);
+            StockStubs.configure(wireMock);
+            StoreStubs.configureAllStubs(wireMock);
+            BrandsStubs.configureAllStubs(wireMock);
+            ImagesStubs.configureAllStubs(wireMock);
 
 
             System.out.println("WireMock démarré sur le port : http://localhost:" + MOCK_PORT);

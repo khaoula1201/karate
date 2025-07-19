@@ -1,0 +1,4 @@
+{
+  "error": "Unauthorized",
+  "message": "Un jeton d'authentification est requis."
+}

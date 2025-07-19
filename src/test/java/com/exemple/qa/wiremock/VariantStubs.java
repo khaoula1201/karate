@@ -4,6 +4,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.net.URL;
+import java.util.HashMap;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
@@ -17,30 +18,66 @@ public class VariantStubs {
     }
 
     private static void configurePostStubs(WireMockServer server) {
-        // PRIORITÉ 1 : Tenter de créer une variante avec des données invalides (400 BAD REQUEST)
-        // C'est le plus spécifique, il doit être testé en premier.
+
+        // PRIORITÉ 1 : Données invalides - characteristics_invalid == true
         server.stubFor(post(urlEqualTo("/variants"))
                 .atPriority(1)
+                .withHeader("Content-Type", containing("application/json"))
                 .withHeader("Authorization", equalTo("Bearer admin-token"))
-                .withRequestBody(matchingJsonPath("$.packaging_id", equalTo("INVALID_PACK_ID")))
+                .withRequestBody(matchingJsonPath("$.characteristics_invalid", equalTo("true")))
                 .willReturn(aResponse()
                         .withStatus(400)
+                        .withHeader("Content-Type", "application/json")
                         .withBody("{\"error\":\"Données de variante invalides\",\"message\":\"Les caractéristiques ou l'emballage spécifiés sont invalides.\"}")));
 
-        // PRIORITÉ 2 : Tenter de créer une variante sans les autorisations nécessaires (403 FORBIDDEN)
-        // Matcher sur l'URL et un en-tête d'autorisation précis.
+        // PRIORITÉ 2 : Données invalides - packaging/category/brand invalides (ton stub existant, priorité abaissée)
         server.stubFor(post(urlEqualTo("/variants"))
                 .atPriority(2)
-                .withHeader("Authorization", equalTo("Bearer user-no-permission"))
-                .willReturn(aResponse()
-                        .withStatus(403)
-                        .withBody("{\"error\":\"Accès interdit\",\"message\":\"Vous n'avez pas les permissions nécessaires pour créer une variante.\"}")));
-
-        // PRIORITÉ 3 : Création réussie (201 CREATED)
-        // C'est le cas par défaut pour les requêtes POST valides. Il doit avoir une priorité plus basse.
-        server.stubFor(post(urlEqualTo("/variants"))
-                .atPriority(3)
+                .withHeader("Content-Type", containing("application/json"))
                 .withHeader("Authorization", equalTo("Bearer admin-token"))
+                .withRequestBody(matchingJsonPath("$.packaging_id", equalTo("INVALID_PACK_ID")))
+                // NOTE: chaque withRequestBody est un ET, donc je double les stubs pour category / brand séparément ci-dessous
+                .willReturn(aResponse()
+                        .withStatus(400)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("{\"error\":\"Données de variante invalides\",\"message\":\"Les caractéristiques ou l'emballage spécifiés sont invalides.\"}")));
+
+        // PRIORITÉ 2b : Données invalides - category invalide (si tu veux capter ce cas sans packaging)
+        server.stubFor(post(urlEqualTo("/variants"))
+                .atPriority(2)
+                .withHeader("Content-Type", containing("application/json"))
+                .withHeader("Authorization", equalTo("Bearer admin-token"))
+                .withRequestBody(matchingJsonPath("$.category_id", equalTo("INVALID_CAT_ID")))
+                .willReturn(aResponse()
+                        .withStatus(400)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("{\"error\":\"Données de variante invalides\",\"message\":\"Les caractéristiques ou l'emballage spécifiés sont invalides.\"}")));
+
+        // PRIORITÉ 2c : Données invalides - brand invalide
+        server.stubFor(post(urlEqualTo("/variants"))
+                .atPriority(2)
+                .withHeader("Content-Type", containing("application/json"))
+                .withHeader("Authorization", equalTo("Bearer admin-token"))
+                .withRequestBody(matchingJsonPath("$.brand_id", equalTo("INVALID_BRAND_ID")))
+                .willReturn(aResponse()
+                        .withStatus(400)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("{\"error\":\"Données de variante invalides\",\"message\":\"Les caractéristiques ou l'emballage spécifiés sont invalides.\"}")));
+
+        // PRIORITÉ 5 : Auth manquante / mal formée (ton code disait 403 mais status=401 -> je garde 401 comme dans BodyFile)
+        server.stubFor(post(urlEqualTo("/variants"))
+                .atPriority(5)
+                .withHeader("Authorization", notMatching("Bearer .+"))
+                .willReturn(aResponse()
+                        .withStatus(401)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile("common/error_unauthorized.json")));
+
+        // PRIORITÉ 6 : Succès (défaut)
+        server.stubFor(post(urlEqualTo("/variants"))
+                .atPriority(6)
+                .withHeader("Authorization", equalTo("Bearer admin-token"))
+                .withHeader("Content-Type", containing("application/json"))
                 .willReturn(aResponse()
                         .withStatus(201)
                         .withHeader("Content-Type", "application/json")
@@ -106,44 +143,48 @@ public class VariantStubs {
                         .withStatus(204)));
     }
 
-    private static void configureGetStubs(WireMockServer server) {
-        // --- Stubs GET ---
-        // 1. Lire les détails d'une variante spécifique
-        server.stubFor(get(urlEqualTo("/variants/variant-123"))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody("{\"id\":\"variant-123\",\"name\":\"Variante Chaussures Rouges\",\"status\":\"ACTIVE\"}")));
+    public static void configureGetStubs(WireMockServer server) {
 
-        // 2. Tenter de lire une variante inexistante
-        server.stubFor(get(urlEqualTo("/variants/nonExistentVariantId"))
-                .willReturn(aResponse()
-                        .withStatus(404)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody("{\"error\":\"Variante non trouvée\",\"message\":\"La variante avec l'ID spécifié n'existe pas.\"}")));
-
-        // 3. Rechercher par nom
+        // PRIORITÉ 1: Les requêtes les plus spécifiques (avec des paramètres de recherche)
         server.stubFor(get(urlPathEqualTo("/variants"))
+                .atPriority(1)
                 .withQueryParam("name", equalTo("Variante Rouge"))
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBody("[{\"id\":\"variant-123\",\"name\":\"Variante Chaussures Rouges\",\"status\":\"ACTIVE\"}]")));
 
-        // 4. Filtrer par produit
         server.stubFor(get(urlPathEqualTo("/variants"))
+                .atPriority(1)
                 .withQueryParam("product", equalTo("prod-456"))
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBody("[{\"id\":\"variant-123\",\"product_id\":\"prod-456\",\"name\":\"Variante Chaussures Rouges\"},{\"id\":\"variant-789\",\"product_id\":\"prod-456\",\"name\":\"Variante Chaussures Noires\"}]")));
 
-        // 5. Lire toutes les variantes (le plus générique)
-        server.stubFor(get(urlEqualTo("/variants"))
+        // PRIORITÉ 2: Récupérer une variante par ID (cas de succès)
+        server.stubFor(get(urlEqualTo("/variants/variant-123"))
+                .atPriority(2)
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("{\"id\":\"variant-123\",\"name\":\"Variante Chaussures Rouges\",\"status\":\"ACTIVE\"}")));
+
+        // PRIORITÉ 3: Liste complète de toutes les variantes.
+        // C'est le stub qui correspond à `GET /variants` sans AUCUN paramètre.
+        server.stubFor(get(urlPathEqualTo("/variants"))
+                .atPriority(3)
+                .withQueryParams(new HashMap<>())
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBody("[{\"id\":\"variant-123\",\"name\":\"Variante Chaussures Rouges\"},{\"id\":\"variant-789\",\"name\":\"Variante Chaussures Noires\"},{\"id\":\"variant-987\",\"name\":\"Variante Sac à main en cuir\"}]")));
-
+        // PRIORITÉ 4: Le "catch-all" pour les IDs non trouvés ou les requêtes malformées
+        server.stubFor(get(urlPathMatching("/variants/.*"))
+                .atPriority(4)
+                .willReturn(aResponse()
+                        .withStatus(404)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("{\"error\":\"Variante non trouvée\",\"message\":\"La variante avec l'ID spécifié n'existe pas.\"}")));
     }
 }
